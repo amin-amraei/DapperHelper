@@ -8,7 +8,7 @@ namespace DapperHelper
     {
         public static void AddDapper(this IServiceCollection services, string connectionStringName)
         {
-            services.AddScoped<IDapper, Dapper>(
+            services.AddTransient<IDapper, Dapper>(
                 serviceProvider => new Dapper(
                     config: serviceProvider.GetRequiredService<IConfiguration>(),
                     connectionStringName: connectionStringName));            
